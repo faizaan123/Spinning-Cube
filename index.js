@@ -1,9 +1,10 @@
 // constants
-const COLOR_BG = "black";
-const COLOR_CUBE = "yellow";
+const COLOR_BG = "#000000";
+const COLOR_CUBE = "#FFFF00";
 const SPEED_X = 0.25; // rps
 const SPEED_Y = 0.15; // rps
 const SPEED_Z = 0.10; // rps
+
 const POINT3D = function (x, y, z) {
     this.x = x;
     this.y = y;
@@ -18,6 +19,7 @@ var ctx = canvas.getContext("2d");
 // dimensions
 var h = document.documentElement.clientHeight;
 var w = document.documentElement.clientWidth;
+
 canvas.height = h;
 canvas.width = w;
 
@@ -32,6 +34,7 @@ var cx = w / 2;
 var cy = h / 2;
 var cz = 0;
 var size = h / 4;
+
 var vertices = [
     new POINT3D(cx - size, cy - size, cz - size),
     new POINT3D(cx + size, cy - size, cz - size),
@@ -42,6 +45,7 @@ var vertices = [
     new POINT3D(cx + size, cy + size, cz + size),
     new POINT3D(cx - size, cy + size, cz + size)
 ];
+
 var edges = [
     [0, 1],
     [1, 2],
@@ -62,7 +66,7 @@ var timeDelta, timeLast = 0;
 requestAnimationFrame(loop);
 
 function loop(timeNow) {
-
+    
     // calculate the time difference
     timeDelta = timeNow - timeLast;
     timeLast = timeNow;
